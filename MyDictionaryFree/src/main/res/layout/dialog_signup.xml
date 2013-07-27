@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/dialog_meaning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#f2f2f2"
+                android:paddingBottom="15dp">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/tvHeader"
+            android:layout_below="@+id/dmDate"
+            android:layout_marginTop="18dp"
+            android:textStyle="italic"
+            android:textColor="#777577"
+            android:gravity="left"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="10dp"
+            android:text="sdf dsflksd fds sdf ds f"
+            android:textSize="24dp"/>
+
+    <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#FFFFBB33"
+            android:id="@+id/imageView"
+            android:layout_below="@+id/tvHeader"
+            android:layout_marginTop="15dp"/>
+
+    <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:hint="Enter your email address"
+            android:singleLine="true"
+            android:inputType="textCapSentences"
+            android:textIsSelectable="false"
+            android:layout_below="@+id/imageView"
+            android:visibility="visible"/>
+
+    <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:hint="Enter an username"
+            android:singleLine="false"
+            android:inputType="textCapSentences"
+            android:textIsSelectable="false"
+            android:layout_below="@+id/etEmail"
+            android:layout_marginTop="10dp"/>
+
+    <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:hint="Enter a password"
+            android:singleLine="false"
+            android:inputType="textCapSentences"
+            android:textIsSelectable="false"
+            android:layout_below="@+id/etUsername"
+            android:layout_marginTop="10dp"/>
+
+</RelativeLayout>

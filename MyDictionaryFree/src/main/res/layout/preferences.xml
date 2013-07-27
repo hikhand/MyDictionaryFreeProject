@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:layout_height="match_parent" android:layout_width="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:title="First Category">
+        <!--<CheckBoxPreference-->
+        <!--android:title="Checkbox Preference"-->
+        <!--android:defaultValue="false"-->
+        <!--android:summary="This preference can be true or false"-->
+        <!--android:key="checkboxPref" />-->
+        <ListPreference
+                android:title="Search Method"
+                android:key="searchMethod"
+                android:defaultValue="wordsAndMeanings"
+                android:entries="@array/searchMethodItems"
+                android:entryValues="@array/searchMethodValues" />
+        <ListPreference
+                android:title="Showing Time Method"
+                android:key="timeMethod"
+                android:defaultValue="distance"
+                android:entries="@array/timeMethodItems"
+                android:entryValues="@array/timeMethodValues" />
+        <!--<ListPreference-->
+                <!--android:title="Default Sort Method"-->
+                <!--android:key="sortMethod"-->
+                <!--android:defaultValue="date"-->
+                <!--android:entries="@array/sortMethodItems"-->
+                <!--android:entryValues="@array/sortMethodValues" />-->
+        <CheckBoxPreference
+                android:title = "Show the number"
+                android:key="showItemNumber"
+                android:summary="whether show the item's number in the list or not"
+                android:defaultValue="true"/>
+        <CheckBoxPreference
+                android:title = "Show the meaning "
+                android:key="showItemMeaning"
+                android:summary="whether show the item's meaning in the list or not"
+                android:defaultValue="true"/>
+
+        <Preference android:title="Backup" >
+            <intent android:action="com.hister.mydictionary.Backup" />
+        </Preference>
+
+        <Preference android:title="Upgrade" >
+            <intent android:action="com.hister.mydictionary.UpgradeActivity">
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            </intent>
+        </Preference>
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

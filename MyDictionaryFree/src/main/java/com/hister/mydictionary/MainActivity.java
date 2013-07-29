@@ -535,7 +535,9 @@ public class MainActivity extends FragmentActivity {
     CustomShow convertToShow(Custom custom) {
         return new CustomShow(custom.getId(), custom.getWord(), custom.getMeaning(), custom.getDate(), custom.getCount());
     }
-
+    Custom convertToCustom(CustomShow j) {
+        return new Custom(j.getId(), j.getWord(), j.getMeaning(), j.getDate(), j.getCount());
+    }
     //Dialog Edit
     //
     //
@@ -613,7 +615,7 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public void onClick(View v) {
-            if (isReadyEdit()) {
+            if (isReadyEdit(word)) {
                 etNewWord = (EditText) dialog.findViewById(R.id.etWord);
                 etNewMeaning = (EditText) dialog.findViewById(R.id.etMeaning);
                 newWordEdit = etNewWord.getText().toString();
@@ -760,7 +762,25 @@ public class MainActivity extends FragmentActivity {
 
     }
 
-
+    void sortAlphabetical() {
+        ArrayList<String> words = new ArrayList<String>();
+        for (CustomShow item : arrayItemsToShow) {
+            words.add(item.getWord());
+        }
+        Collections.sort(words);
+        ArrayList<Custom> buff = new ArrayList<Custom>();
+        for (CustomShow item: arrayItemsToShow) {
+            buff.add(convertToCustom(item));
+        }
+        arrayItemsToShow.clear();
+        for (int i = 0; i < buff.size(); i++) {
+            for (Custom j : buff) {
+                if (words.get(i).equals(j.getWord())) {
+                    arrayItemsToShow.add(convertToShow(j));
+                }
+            }
+        }
+    }
     //Set Image Add For First Time Visibility
     //
     //
@@ -813,7 +833,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     int getPosition(String word, String meaning) {
-        for (int i = 0; i < database.getItemsCount(); i++) {
+        for (int i = 0; i < arrayItems.size(); i++) {
             if (arrayItems.get(i).getWord().toUpperCase().equals(word) &&
                     arrayItems.get(i).getMeaning().toUpperCase().equals(meaning)) {
                 return i;
@@ -841,7 +861,7 @@ public class MainActivity extends FragmentActivity {
             return false;
         }
         for (int i = 0; i < database.getItemsCount(); i++) {
-            if (newWord.equals(arrayItems.get(i).getWord()) && newMeaning.equals(arrayItems.get(i).getMeaning())) {
+            if (newWord.equals(arrayItems.get(i).getWord())) {
                 Toast.makeText(this, "The Word exists in the database", Toast.LENGTH_SHORT).show();
                 return false;
             }
@@ -853,11 +873,12 @@ public class MainActivity extends FragmentActivity {
     //Check if EveryThing's Ready To Edit A Word
     //
     //
-    public boolean isReadyEdit() {
+    public boolean isReadyEdit(String word) {
         etNewWord = (EditText) dialogEdit.findViewById(R.id.etWord);
         etNewMeaning = (EditText) dialogEdit.findViewById(R.id.etMeaning);
         String newWord = etNewWord.getText().toString();
         String newMeaning = etNewMeaning.getText().toString();
+
 
         if (isStringJustSpace(newWord)) {
             Toast.makeText(this, "The Word's Name is missing.", Toast.LENGTH_SHORT).show();
@@ -868,18 +889,17 @@ public class MainActivity extends FragmentActivity {
             return false;
         }
 
-        if (arrayItems.get(getPosition(dialogMeaningWordPosition)).getWord().equals(newWord) && arrayItems.get(getPosition(dialogMeaningWordPosition)).getMeaning().equals(newMeaning)) {
+        if (arrayItems.get(getPosition(dialogMeaningWordPosition)).getWord().toLowerCase().equals(newWord.toLowerCase()) && arrayItems.get(getPosition(dialogMeaningWordPosition)).getMeaning().toLowerCase().equals(newMeaning.toLowerCase())) {
             Toast.makeText(this, "Nothing has changed", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         for (int i = 0; i < database.getItemsCount(); i++) {
-            if (newWord.equals(arrayItems.get(i).getWord()) && newMeaning.equals(arrayItems.get(i).getMeaning())) {
+            if (newWord.toLowerCase().equals(arrayItems.get(i).getWord().toLowerCase()) && !newWord.toLowerCase().equals(word.toLowerCase())) {
                 Toast.makeText(this, "The Word exists in the database", Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
-
         return true;
     }
 

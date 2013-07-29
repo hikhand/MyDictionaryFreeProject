@@ -17,7 +17,13 @@
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1ed6975-5ab3-4259-9de6-9ed86f099110" name="Default" comment="" />
+    <list default="true" id="f1ed6975-5ab3-4259-9de6-9ed86f099110" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/LeitnerActivity.java" afterPath="$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/LeitnerActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/MainActivity.java" afterPath="$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyDictionaryFree/src/main/res/layout/about.xml" afterPath="$PROJECT_DIR$/MyDictionaryFree/src/main/res/layout/about.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="MyDictionaryFree.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,12 +86,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LeitnerActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/LeitnerActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="908" column="32" selection-start="37655" selection-end="37655" vertical-scroll-proportion="0.0" vertical-offset="15419" max-vertical-offset="49470">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1763" column="17" selection-start="68913" selection-end="68913" vertical-scroll-proportion="-12.269231" vertical-offset="7416" max-vertical-offset="8976">
+            <state line="619" column="8" selection-start="24080" selection-end="24080" vertical-scroll-proportion="0.37638375" vertical-offset="1904" max-vertical-offset="5831">
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#onBackPressed#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#header#0;class#MainActivity#0" expanded="false" />
@@ -102,38 +116,36 @@
                 <element signature="e#12224#12309#0" expanded="false" />
                 <element signature="method#notifyCheckedPositionsInt#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#getPrefs#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#setElementsId#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#dialogAddNew#0;class#MainActivity#0" expanded="false" />
                 <element signature="class#15733:15895" expanded="false" />
                 <element signature="method#onClick#0;class#15733:15895" expanded="false" />
                 <element signature="class#CustomListenerAddNew#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#CustomListenerAddNew#0;class#CustomListenerAddNew#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onClick#0;class#CustomListenerAddNew#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#convertToShow#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#search#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#dialogEdit#0;class#MainActivity#0" expanded="false" />
-                <element signature="class#20757:20895" expanded="false" />
-                <element signature="method#onClick#0;class#20757:20895" expanded="false" />
-                <element signature="class#CustomListenerEdit#0;class#MainActivity#0" expanded="false" />
+                <element signature="class#20899:21037" expanded="false" />
+                <element signature="method#onClick#0;class#20899:21037" expanded="false" />
                 <element signature="method#CustomListenerEdit#0;class#CustomListenerEdit#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onClick#0;class#CustomListenerEdit#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#25033#25098#0" expanded="false" />
+                <element signature="e#25179#25244#0" expanded="false" />
                 <element signature="method#dialogAskDelete#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#refreshItemsCount#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#delete#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#refreshListViewData#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#30752#30760#0" expanded="true" />
                 <element signature="method#setImgAddVisibility#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#30706#30735#0" expanded="false" />
+                <element signature="e#31518#31547#0" expanded="false" />
                 <element signature="method#getPosition#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#getPosition#1;class#MainActivity#0" expanded="false" />
                 <element signature="method#isReadyToAddNew#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#isReadyEdit#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#isStringJustSpace#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#restore#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#clearMarks#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#AddNew#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onSaveInstanceState#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#dialogAskDeleteByMark#0;class#MainActivity#0" expanded="false" />
-                <element signature="class#42630:42780" expanded="false" />
-                <element signature="method#onClick#0;class#42630:42780" expanded="false" />
+                <element signature="class#43477:43627" expanded="false" />
+                <element signature="method#onClick#0;class#43477:43627" expanded="false" />
                 <element signature="method#doDeleteByMark#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#menu_Delete#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
@@ -141,136 +153,42 @@
                 <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+                <element signature="method#onPrepareOptionsMenu#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onMenuItemSelected#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#dialogMeaning#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#48802#48861#0" expanded="false" />
+                <element signature="e#49649#49708#0" expanded="false" />
                 <element signature="method#tvDateOnClick#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#changeDateToDistance#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#changeDateToDistanceOnClick#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#backup#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#upload#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#60278#60301#0" expanded="false" />
-                <element signature="e#61407#61518#0" expanded="false" />
+                <element signature="e#61125#61148#0" expanded="false" />
+                <element signature="e#62254#62365#0" expanded="false" />
                 <element signature="method#checkSiteForPosts#0;class#MainActivity#0" expanded="false" />
-                <element signature="class#62270:64402" expanded="false" />
-                <element signature="method#FtpTask#0;class#62270:64402" expanded="false" />
-                <element signature="method#onPreExecute#0;class#62270:64402" expanded="false" />
-                <element signature="method#doInBackground#0;class#62270:64402" expanded="false" />
-                <element signature="method#onPostExecute#0;class#62270:64402" expanded="false" />
-                <element signature="method#onProgressUpdate#0;class#62270:64402" expanded="false" />
+                <element signature="class#63117:65249" expanded="false" />
+                <element signature="method#FtpTask#0;class#63117:65249" expanded="false" />
+                <element signature="method#onPreExecute#0;class#63117:65249" expanded="false" />
+                <element signature="method#doInBackground#0;class#63117:65249" expanded="false" />
+                <element signature="method#onPostExecute#0;class#63117:65249" expanded="false" />
+                <element signature="method#onProgressUpdate#0;class#63117:65249" expanded="false" />
+                <element signature="method#showDialogNewPost#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#checkSiteForVersionChange#0;class#MainActivity#0" expanded="false" />
-                <element signature="class#65870:67830" expanded="false" />
-                <element signature="method#FtpTask#0;class#65870:67830" expanded="false" />
-                <element signature="method#onPreExecute#0;class#65870:67830" expanded="false" />
-                <element signature="method#doInBackground#0;class#65870:67830" expanded="false" />
-                <element signature="method#onPostExecute#0;class#65870:67830" expanded="false" />
-                <element signature="method#onProgressUpdate#0;class#65870:67830" expanded="false" />
+                <element signature="class#66717:68677" expanded="false" />
+                <element signature="method#FtpTask#0;class#66717:68677" expanded="false" />
+                <element signature="method#onPreExecute#0;class#66717:68677" expanded="false" />
+                <element signature="method#doInBackground#0;class#66717:68677" expanded="false" />
+                <element signature="method#onPostExecute#0;class#66717:68677" expanded="false" />
+                <element signature="method#onProgressUpdate#0;class#66717:68677" expanded="false" />
+                <element signature="method#showDialogExpire#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#sharedToDatabase#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#70095#70114#0" expanded="false" />
-                <element signature="method#FtpTask#0;class#70655:72307" expanded="false" />
-                <element signature="method#onPreExecute#0;class#70655:72307" expanded="false" />
-                <element signature="method#onPostExecute#0;class#70655:72307" expanded="false" />
-                <element signature="method#onProgressUpdate#0;class#70655:72307" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LeitnerActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/LeitnerActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2584" column="37" selection-start="115477" selection-end="115477" vertical-scroll-proportion="0.35424355" vertical-offset="3418" max-vertical-offset="7157">
-              <folding>
-                <element signature="method#setElementsId#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#setElementsValue#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#putNewFromMdToDatabase#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#refreshListViewData#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#summery_OnClick#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#dialogSummery#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="class#10989:11171" expanded="false" />
-                <element signature="method#onClick#0;class#10989:11171" expanded="false" />
-                <element signature="method#refreshShow#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#refreshLessThan30#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#refreshMoreThan30#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#convertItem#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#listeners#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="class#32189:32883" expanded="false" />
-                <element signature="method#beforeTextChanged#0;class#32189:32883" expanded="false" />
-                <element signature="method#onTextChanged#0;class#32189:32883" expanded="false" />
-                <element signature="method#afterTextChanged#0;class#32189:32883" expanded="false" />
-                <element signature="method#notifyCheckedPositionsInt#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#dialogEdit#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="class#33603:33741" expanded="false" />
-                <element signature="method#onClick#0;class#33603:33741" expanded="false" />
-                <element signature="class#CustomListenerEdit#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#CustomListenerEdit#0;class#CustomListenerEdit#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#onClick#0;class#CustomListenerEdit#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#dialogAskDelete#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#AddNew#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#dialogAddNew#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="class#39556:39718" expanded="false" />
-                <element signature="method#onClick#0;class#39556:39718" expanded="false" />
-                <element signature="class#CustomListenerAddNew#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#CustomListenerAddNew#0;class#CustomListenerAddNew#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#onClick#0;class#CustomListenerAddNew#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#isReadyToAddNew#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#getDistance#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#getPosition#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#getPosition#1;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#delete#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#isReadyEdit#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#isStringJustSpace#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#search#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="e#50732#50769#0" expanded="false" />
-                <element signature="method#getPrefs#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#clearMarks#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#menu_Delete#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#dialogAskDeleteByMark#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="class#55726:55876" expanded="false" />
-                <element signature="method#onClick#0;class#55726:55876" expanded="false" />
-                <element signature="method#tvAddDateOnClick#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#tvLastDateOnClick#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#dialogMeaning#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="e#58190#58249#0" expanded="false" />
-                <element signature="method#name_click#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#name_Click#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#indexDeck#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#answer_Correct#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#move_Next_Correct#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#whichIndexTurnDeck#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#lastIndexMore30#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#nextIndexMore30#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#answer_Incorrect#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#update_Info_After_Answer#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#updateIndexesLastDayLessThan30#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#updateIndexLastDayMoreThan30#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#onBackPressed#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#onPause#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#onStop#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#onResume#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#onDestroy#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#onCreateOptionsMenu#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="method#onPrepareOptionsMenu#0;class#LeitnerActivity#0" expanded="false" />
-                <element signature="e#122686#122754#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="243" selection-end="243" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-              <folding>
-                <element signature="tag#uses-sdk#0;tag#manifest#0" expanded="false" />
-                <element signature="tag#activity#0;tag#application#0;tag#manifest#0" expanded="false" />
-                <element signature="tag#intent-filter#0;tag#activity#0;tag#application#0;tag#manifest#0" expanded="false" />
-                <element signature="tag#activity#1;tag#application#0;tag#manifest#0" expanded="false" />
-                <element signature="tag#activity#2;tag#application#0;tag#manifest#0" expanded="false" />
-                <element signature="tag#activity#3;tag#application#0;tag#manifest#0" expanded="false" />
-                <element signature="tag#intent-filter#0;tag#activity#4;tag#application#0;tag#manifest#0" expanded="false" />
-                <element signature="tag#activity#5;tag#application#0;tag#manifest#0" expanded="false" />
-                <element signature="tag#intent-filter#0;tag#activity#6;tag#application#0;tag#manifest#0" expanded="false" />
+                <element signature="e#70942#70961#0" expanded="false" />
+                <element signature="method#countMe#0;class#MainActivity#0" expanded="false" />
+                <element signature="class#71502:73154" expanded="false" />
+                <element signature="method#FtpTask#0;class#71502:73154" expanded="false" />
+                <element signature="method#onPreExecute#0;class#71502:73154" expanded="false" />
+                <element signature="method#doInBackground#0;class#71502:73154" expanded="false" />
+                <element signature="method#onPostExecute#0;class#71502:73154" expanded="false" />
+                <element signature="method#onProgressUpdate#0;class#71502:73154" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -287,6 +205,14 @@
     <option name="KEY_STORE_PATH" value="D:\Programming\workplace\Android\key.keystore" />
     <option name="KEY_ALIAS" value="hister" />
     <option name="REMEMBER_PASSWORDS" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="tasksExpandState">
@@ -328,7 +254,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/res/menu/leitner.xml" />
-        <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/LeitnerActivity.java" />
         <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/res/layout/activity_upgrade.xml" />
         <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/Upgrade.java" />
@@ -336,7 +261,10 @@
         <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/Backup.java" />
         <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/res/layout/preferences.xml" />
         <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/res/layout/about.xml" />
+        <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/LeitnerActivity.java" />
         <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/MainActivity.java" />
+        <option value="$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/Names.java" />
       </list>
     </option>
   </component>
@@ -346,7 +274,7 @@
     <option name="width" value="1296" />
     <option name="height" value="1010" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -372,7 +300,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -459,11 +386,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="ExportedApkPath" value="D:\My Dictionary Free\MyDictionaryFreeProject\MyDictionaryFree\MyDictionaryFree1.3.0.apk" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
@@ -474,9 +404,11 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="AndroidRunProguardForReleaseBuild" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Android Application.MyDictionaryFree">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -631,32 +563,32 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1010" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286385" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.37089202" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39906102" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290398" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33755276" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7077465" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4767064" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23176661" sideWeight="0.6619718" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33802816" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23176661" sideWeight="0.66305524" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33694476" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.37089202" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32912722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32827735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -721,37 +653,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/res/layout/activity_upgrade.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/LeitnerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="38" selection-start="6954" selection-end="6954" vertical-scroll-proportion="0.0" vertical-offset="1445" max-vertical-offset="5117" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/LeitnerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="19" selection-start="6240" selection-end="6240" vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="5117" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/res/menu/leitner.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="7" selection-start="773" selection-end="773" vertical-scroll-proportion="0.3979933" vertical-offset="0" max-vertical-offset="897">
-          <folding>
-            <element signature="e#130#151#0" expanded="false" />
-            <element signature="e#265#293#0" expanded="false" />
-            <element signature="e#406#433#0" expanded="false" />
-            <element signature="e#544#569#0" expanded="false" />
-            <element signature="e#677#684#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="21" column="7" selection-start="773" selection-end="773" vertical-scroll-proportion="0.3979933" vertical-offset="0" max-vertical-offset="897" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/res/menu/main.xml">
@@ -767,13 +671,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/res/layout/backup.xml">
+      <provider editor-type-id="text-editor">
+        <state line="33" column="21" selection-start="0" selection-end="9198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3417" />
+      </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="33" column="21" selection-start="0" selection-end="9198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3417">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/UpgradeActivity.java">
@@ -791,13 +693,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/res/layout/preferences.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="672" selection-end="672" vertical-scroll-proportion="0.06616729" vertical-offset="168" max-vertical-offset="969" />
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="672" selection-end="672" vertical-scroll-proportion="0.06616729" vertical-offset="168" max-vertical-offset="969">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/Backup.java">
@@ -873,19 +773,15 @@
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/app/Activity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="432" column="0" selection-start="19421" selection-end="19421" vertical-scroll-proportion="0.8745387" vertical-offset="6633" max-vertical-offset="7446">
-          <folding />
-        </state>
+        <state line="432" column="0" selection-start="19421" selection-end="19421" vertical-scroll-proportion="0.8745387" vertical-offset="6633" max-vertical-offset="7446" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/res/layout/activity_upgrade.xml">
+      <provider editor-type-id="text-editor">
+        <state line="62" column="17" selection-start="2928" selection-end="2928" vertical-scroll-proportion="0.0" vertical-offset="338" max-vertical-offset="1156" />
+      </provider>
       <provider selected="true" editor-type-id="android-designer">
         <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="62" column="17" selection-start="2928" selection-end="2928" vertical-scroll-proportion="0.0" vertical-offset="338" max-vertical-offset="1156">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/AndroidManifest.xml">
@@ -905,11 +801,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/res/layout/about.xml">
+      <provider editor-type-id="text-editor">
+        <state line="29" column="32" selection-start="1139" selection-end="1139" vertical-scroll-proportion="0.0" vertical-offset="185" max-vertical-offset="2142" />
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/AboutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="10" selection-start="408" selection-end="408" vertical-scroll-proportion="0.24637681" vertical-offset="0" max-vertical-offset="897" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/LeitnerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="908" column="32" selection-start="37655" selection-end="37655" vertical-scroll-proportion="0.0" vertical-offset="1616" max-vertical-offset="5848">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1763" column="17" selection-start="68913" selection-end="68913" vertical-scroll-proportion="-12.269231" vertical-offset="7416" max-vertical-offset="8976">
+        <state line="619" column="8" selection-start="24080" selection-end="24080" vertical-scroll-proportion="0.37638375" vertical-offset="1904" max-vertical-offset="5831">
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#onBackPressed#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
             <element signature="method#header#0;class#MainActivity#0" expanded="false" />
@@ -926,38 +841,36 @@
             <element signature="e#12224#12309#0" expanded="false" />
             <element signature="method#notifyCheckedPositionsInt#0;class#MainActivity#0" expanded="false" />
             <element signature="method#getPrefs#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#setElementsId#0;class#MainActivity#0" expanded="false" />
             <element signature="method#dialogAddNew#0;class#MainActivity#0" expanded="false" />
             <element signature="class#15733:15895" expanded="false" />
             <element signature="method#onClick#0;class#15733:15895" expanded="false" />
             <element signature="class#CustomListenerAddNew#0;class#MainActivity#0" expanded="false" />
             <element signature="method#CustomListenerAddNew#0;class#CustomListenerAddNew#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onClick#0;class#CustomListenerAddNew#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#convertToShow#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#search#0;class#MainActivity#0" expanded="false" />
             <element signature="method#dialogEdit#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#20757:20895" expanded="false" />
-            <element signature="method#onClick#0;class#20757:20895" expanded="false" />
-            <element signature="class#CustomListenerEdit#0;class#MainActivity#0" expanded="false" />
+            <element signature="class#20899:21037" expanded="false" />
+            <element signature="method#onClick#0;class#20899:21037" expanded="false" />
             <element signature="method#CustomListenerEdit#0;class#CustomListenerEdit#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#CustomListenerEdit#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#25033#25098#0" expanded="false" />
+            <element signature="e#25179#25244#0" expanded="false" />
             <element signature="method#dialogAskDelete#0;class#MainActivity#0" expanded="false" />
             <element signature="method#refreshItemsCount#0;class#MainActivity#0" expanded="false" />
             <element signature="method#delete#0;class#MainActivity#0" expanded="false" />
             <element signature="method#refreshListViewData#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#30752#30760#0" expanded="true" />
             <element signature="method#setImgAddVisibility#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#30706#30735#0" expanded="false" />
+            <element signature="e#31518#31547#0" expanded="false" />
             <element signature="method#getPosition#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#getPosition#1;class#MainActivity#0" expanded="false" />
             <element signature="method#isReadyToAddNew#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#isReadyEdit#0;class#MainActivity#0" expanded="false" />
             <element signature="method#isStringJustSpace#0;class#MainActivity#0" expanded="false" />
             <element signature="method#restore#0;class#MainActivity#0" expanded="false" />
             <element signature="method#clearMarks#0;class#MainActivity#0" expanded="false" />
             <element signature="method#AddNew#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onSaveInstanceState#0;class#MainActivity#0" expanded="false" />
             <element signature="method#dialogAskDeleteByMark#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#42630:42780" expanded="false" />
-            <element signature="method#onClick#0;class#42630:42780" expanded="false" />
+            <element signature="class#43477:43627" expanded="false" />
+            <element signature="method#onClick#0;class#43477:43627" expanded="false" />
             <element signature="method#doDeleteByMark#0;class#MainActivity#0" expanded="false" />
             <element signature="method#menu_Delete#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onPause#0;class#MainActivity#0" expanded="false" />
@@ -965,115 +878,42 @@
             <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDestroy#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
+            <element signature="method#onPrepareOptionsMenu#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onMenuItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#dialogMeaning#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#48802#48861#0" expanded="false" />
+            <element signature="e#49649#49708#0" expanded="false" />
             <element signature="method#tvDateOnClick#0;class#MainActivity#0" expanded="false" />
             <element signature="method#changeDateToDistance#0;class#MainActivity#0" expanded="false" />
             <element signature="method#changeDateToDistanceOnClick#0;class#MainActivity#0" expanded="false" />
             <element signature="method#backup#0;class#MainActivity#0" expanded="false" />
             <element signature="method#upload#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#60278#60301#0" expanded="false" />
-            <element signature="e#61407#61518#0" expanded="false" />
+            <element signature="e#61125#61148#0" expanded="false" />
+            <element signature="e#62254#62365#0" expanded="false" />
             <element signature="method#checkSiteForPosts#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#62270:64402" expanded="false" />
-            <element signature="method#FtpTask#0;class#62270:64402" expanded="false" />
-            <element signature="method#onPreExecute#0;class#62270:64402" expanded="false" />
-            <element signature="method#doInBackground#0;class#62270:64402" expanded="false" />
-            <element signature="method#onPostExecute#0;class#62270:64402" expanded="false" />
-            <element signature="method#onProgressUpdate#0;class#62270:64402" expanded="false" />
+            <element signature="class#63117:65249" expanded="false" />
+            <element signature="method#FtpTask#0;class#63117:65249" expanded="false" />
+            <element signature="method#onPreExecute#0;class#63117:65249" expanded="false" />
+            <element signature="method#doInBackground#0;class#63117:65249" expanded="false" />
+            <element signature="method#onPostExecute#0;class#63117:65249" expanded="false" />
+            <element signature="method#onProgressUpdate#0;class#63117:65249" expanded="false" />
+            <element signature="method#showDialogNewPost#0;class#MainActivity#0" expanded="false" />
             <element signature="method#checkSiteForVersionChange#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#65870:67830" expanded="false" />
-            <element signature="method#FtpTask#0;class#65870:67830" expanded="false" />
-            <element signature="method#onPreExecute#0;class#65870:67830" expanded="false" />
-            <element signature="method#doInBackground#0;class#65870:67830" expanded="false" />
-            <element signature="method#onPostExecute#0;class#65870:67830" expanded="false" />
-            <element signature="method#onProgressUpdate#0;class#65870:67830" expanded="false" />
+            <element signature="class#66717:68677" expanded="false" />
+            <element signature="method#FtpTask#0;class#66717:68677" expanded="false" />
+            <element signature="method#onPreExecute#0;class#66717:68677" expanded="false" />
+            <element signature="method#doInBackground#0;class#66717:68677" expanded="false" />
+            <element signature="method#onPostExecute#0;class#66717:68677" expanded="false" />
+            <element signature="method#onProgressUpdate#0;class#66717:68677" expanded="false" />
+            <element signature="method#showDialogExpire#0;class#MainActivity#0" expanded="false" />
             <element signature="method#sharedToDatabase#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#70095#70114#0" expanded="false" />
-            <element signature="method#FtpTask#0;class#70655:72307" expanded="false" />
-            <element signature="method#onPreExecute#0;class#70655:72307" expanded="false" />
-            <element signature="method#onPostExecute#0;class#70655:72307" expanded="false" />
-            <element signature="method#onProgressUpdate#0;class#70655:72307" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyDictionaryFree/src/main/java/com/hister/mydictionary/LeitnerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2584" column="37" selection-start="115477" selection-end="115477" vertical-scroll-proportion="0.35424355" vertical-offset="3418" max-vertical-offset="7157">
-          <folding>
-            <element signature="method#setElementsId#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#setElementsValue#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#putNewFromMdToDatabase#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#refreshListViewData#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#summery_OnClick#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#dialogSummery#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="class#10989:11171" expanded="false" />
-            <element signature="method#onClick#0;class#10989:11171" expanded="false" />
-            <element signature="method#refreshShow#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#refreshLessThan30#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#refreshMoreThan30#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#convertItem#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#listeners#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="class#32189:32883" expanded="false" />
-            <element signature="method#beforeTextChanged#0;class#32189:32883" expanded="false" />
-            <element signature="method#onTextChanged#0;class#32189:32883" expanded="false" />
-            <element signature="method#afterTextChanged#0;class#32189:32883" expanded="false" />
-            <element signature="method#notifyCheckedPositionsInt#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#dialogEdit#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="class#33603:33741" expanded="false" />
-            <element signature="method#onClick#0;class#33603:33741" expanded="false" />
-            <element signature="class#CustomListenerEdit#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#CustomListenerEdit#0;class#CustomListenerEdit#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#CustomListenerEdit#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#dialogAskDelete#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#AddNew#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#dialogAddNew#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="class#39556:39718" expanded="false" />
-            <element signature="method#onClick#0;class#39556:39718" expanded="false" />
-            <element signature="class#CustomListenerAddNew#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#CustomListenerAddNew#0;class#CustomListenerAddNew#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#CustomListenerAddNew#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#isReadyToAddNew#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#getDistance#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#getPosition#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#getPosition#1;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#delete#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#isReadyEdit#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#isStringJustSpace#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#search#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="e#50732#50769#0" expanded="false" />
-            <element signature="method#getPrefs#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#clearMarks#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#menu_Delete#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#dialogAskDeleteByMark#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="class#55726:55876" expanded="false" />
-            <element signature="method#onClick#0;class#55726:55876" expanded="false" />
-            <element signature="method#tvAddDateOnClick#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#tvLastDateOnClick#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#dialogMeaning#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="e#58190#58249#0" expanded="false" />
-            <element signature="method#name_click#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#name_Click#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#indexDeck#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#answer_Correct#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#move_Next_Correct#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#whichIndexTurnDeck#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#lastIndexMore30#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#nextIndexMore30#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#answer_Incorrect#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#update_Info_After_Answer#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#updateIndexesLastDayLessThan30#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#updateIndexLastDayMoreThan30#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#onBackPressed#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#onPause#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#onStop#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#onDestroy#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="method#onPrepareOptionsMenu#0;class#LeitnerActivity#0" expanded="false" />
-            <element signature="e#122686#122754#0" expanded="false" />
+            <element signature="e#70942#70961#0" expanded="false" />
+            <element signature="method#countMe#0;class#MainActivity#0" expanded="false" />
+            <element signature="class#71502:73154" expanded="false" />
+            <element signature="method#FtpTask#0;class#71502:73154" expanded="false" />
+            <element signature="method#onPreExecute#0;class#71502:73154" expanded="false" />
+            <element signature="method#doInBackground#0;class#71502:73154" expanded="false" />
+            <element signature="method#onPostExecute#0;class#71502:73154" expanded="false" />
+            <element signature="method#onProgressUpdate#0;class#71502:73154" expanded="false" />
           </folding>
         </state>
       </provider>

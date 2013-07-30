@@ -46,6 +46,10 @@
             </intent>
         </Preference>
 
+        <Preference android:title="About" >
+            <intent android:action="com.hister.mydictionary.AboutActivity">
+            </intent>
+        </Preference>
 
     </PreferenceCategory>
 

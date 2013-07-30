@@ -24,6 +24,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -95,6 +96,13 @@ public class LeitnerActivity extends Activity {
     final String TABLE_DONT_ADD = "dontAdd";
     final String TABLE_ARCHIVE = "archive";
 
+    @Override
+    public boolean onSearchRequested() {
+        etSearch.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(etSearch, InputMethodManager.SHOW_IMPLICIT);
+        return false;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,8 +112,8 @@ public class LeitnerActivity extends Activity {
 
         setElementsId();
         if (savedInstanceState != null) {
-        listViewPosition = savedInstanceState.getParcelable("listViewPosition");
-        searchText = savedInstanceState.getString("etSearchText");
+            listViewPosition = savedInstanceState.getParcelable("listViewPosition");
+            searchText = savedInstanceState.getString("etSearchText");
         }
         etSearch.setText(searchText);
 
@@ -230,7 +238,6 @@ public class LeitnerActivity extends Activity {
 
             refreshShow();
 
-            sortAlphabetical();
 
             if (itemsToShow.size() > 0) {
                 int k = 1;
@@ -243,6 +250,9 @@ public class LeitnerActivity extends Activity {
                 }
             } else {
                 itemsToShow.add(new ItemShow("   Nothing found", "My Dictionary", "KHaledBLack73"));
+                databaseLeitner.updateLastDate(todayDate);
+                databaseLeitner.updateLastDay(todayNum);
+                lastDate = todayDate;
             }
         }
         adapter.notifyDataSetChanged();
@@ -258,31 +268,11 @@ public class LeitnerActivity extends Activity {
         }
 
         if (itemsToShow.size() > 0) {
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+//            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
             TextView tvSummery = (TextView) findViewById(R.id.leitnerSummeryTV);
             if (!itemsToShow.get(0).getName().equals("   Nothing found") && !itemsToShow.get(0).getMeaning().equals("My Dictionary"))
                 tvSummery.setText("'" + Integer.toString(itemsToShow.size()) + "' words left");
             else tvSummery.setText("'" + Integer.toString(itemsToShow.size()-1) + "' words left");
-        }
-    }
-
-    void sortAlphabetical() {
-        ArrayList<String> words = new ArrayList<String>();
-        for (ItemShow item : itemsToShow) {
-            words.add(item.getName());
-        }
-        Collections.sort(words);
-        ArrayList<Item> buff = new ArrayList<Item>();
-        for (ItemShow item: itemsToShow) {
-            buff.add(convertItemShow(item));
-        }
-        itemsToShow.clear();
-        for (int i = 0; i < buff.size(); i++) {
-            for (Item j : buff) {
-                if (words.get(i).equals(j.getName())) {
-                    itemsToShow.add(convertItem(j));
-                }
-            }
         }
     }
 
@@ -870,14 +860,12 @@ public class LeitnerActivity extends Activity {
 
         EditText etNewWord = (EditText) dialogEdit.findViewById(R.id.etWord);
         EditText etNewMeaning = (EditText) dialogEdit.findViewById(R.id.etMeaning);
-        if (fromSearch) {
-            etNewMeaning.setText(itemsToShow.get(fakePosition).getMeaning());
-            etNewWord.setText(arrayItems.get(realPosition).getName());
 
-        } else {
             etNewWord.setText(arrayItems.get(realPosition).getName());
             etNewMeaning.setText(itemsToShow.get(fakePosition).getMeaning());
-        }
+
+        CheckBox chDontToLeitner = (CheckBox) dialogEdit.findViewById(R.id.chDoOrDoNot);
+        chDontToLeitner.setVisibility(View.GONE);
 
         TextView tvTotalCount = (TextView) dialogEdit.findViewById(R.id.tvTotalCount);
         TextView tvHeader = (TextView) dialogEdit.findViewById(R.id.tvHeader);
@@ -1004,6 +992,8 @@ public class LeitnerActivity extends Activity {
                 } else {
                     EditText etNewWord = (EditText) dialog.findViewById(R.id.etWord);
                     EditText etNewMeaning = (EditText) dialog.findViewById(R.id.etMeaning);
+                    CheckBox chDontToLeitner = (CheckBox) dialogAddNew.findViewById(R.id.chDoOrDoNot);
+
                     String newWord = etNewWord.getText().toString();
                     String newMeaning = etNewMeaning.getText().toString();
 
@@ -1011,6 +1001,10 @@ public class LeitnerActivity extends Activity {
                     String currentDateAndTime = simpleDateFormat.format(new Date());
 
                     databaseLeitner.addItem(new Item(newWord, newMeaning, currentDateAndTime), TABLE_LEITNER);
+
+                    if (chDontToLeitner.isChecked()) {
+                        databaseMain.addItem(new Custom(newWord, newMeaning, currentDateAndTime, 0));
+                    }
 
                     listViewPosition = items.onSaveInstanceState();
                     refreshListViewData();
@@ -1498,7 +1492,6 @@ public class LeitnerActivity extends Activity {
     }
 
 
-
     public void name_click(View view) {
         name_Click(dialogMeaningWordPosition);
         answerViewed = true;
@@ -1813,7 +1806,7 @@ public class LeitnerActivity extends Activity {
         refreshListViewData();
 
         if (position != itemsToShow.size() && (!itemsToShow.get(position).getName().equals("   Nothing found"))) {
-                dialogMeaning(position);
+            dialogMeaning(position);
         }
     }
 
@@ -2726,7 +2719,7 @@ public class LeitnerActivity extends Activity {
         }
         if (dialogSummeryIsOpen) {
             if (!dialogSummery.isShowing())
-             dialogSummery();
+                dialogSummery();
         }
 
         if (markSeveral) {
@@ -2837,10 +2830,6 @@ public class LeitnerActivity extends Activity {
             case R.id.action_settings:
                 LeitnerActivity.this.startActivity(new Intent(LeitnerActivity.this, Preferences.class));
                 return true;
-            case R.id.action_about:
-                LeitnerActivity.this.startActivity(new Intent(LeitnerActivity.this, AboutActivity.class));
-                return true;
-
 
             case R.id.action_mark:
                 if (itemsToShow.size() > 0) {
@@ -2890,12 +2879,6 @@ public class LeitnerActivity extends Activity {
 
             case R.id.action_dictionary:
                 LeitnerActivity.this.startActivity(new Intent(LeitnerActivity.this, MainActivity.class));
-                return true;
-
-            case R.id.action_count_today:
-                databaseLeitner.updateLastDate(todayDate);
-                databaseLeitner.updateLastDay(todayNum);
-                lastDate = todayDate;
                 return true;
         }
         return super.onMenuItemSelected(featureId, item);

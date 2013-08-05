@@ -63,7 +63,7 @@
                 android:textStyle="italic"
                 android:textColor="#777577"
                 android:gravity="left"
-                android:maxHeight="150dp"/>
+                android:maxHeight="170dp"/>
     </ScrollView>
 
     <ImageView
@@ -79,7 +79,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/scrollView"
             android:layout_below="@+id/imageView"
-            android:layout_marginTop="10dp"
             android:fillViewport="false"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="12dp"
@@ -94,7 +93,8 @@
                 android:text="and im the meaning and im the meaning and im the meaning and im the meaning"
                 android:textIsSelectable="false"
                 android:textSize="24dp"
-                android:textColor="#363636"/>
+                android:textColor="#363636"
+                android:paddingTop="8dp"/>
     </ScrollView>
 
 </RelativeLayout>

@@ -4,9 +4,10 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ScrollView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/scrollView">
+            android:id="@+id/textView"
+            android:text="To upgrade to the pro bersion just create a backup and ">
 
         <RelativeLayout
                 tools:context=".Backup"
@@ -58,6 +59,26 @@
                     android:id="@+id/imageView5"
                     android:layout_below="@+id/tvUsernameUpgrade"
                     android:layout_centerHorizontal="true"/>
+
         </RelativeLayout>
     </ScrollView>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="To upgrade to the pro version, and use your database just create backup and then after purchasing just restore your backup  "
+            android:id="@+id/textView"
+            android:padding="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"/>
+
+    <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#FFFFBB33"
+            android:id="@+id/imageView"
+            android:layout_above="@+id/textView"
+            android:layout_alignParentLeft="true"/>
+
 </RelativeLayout>

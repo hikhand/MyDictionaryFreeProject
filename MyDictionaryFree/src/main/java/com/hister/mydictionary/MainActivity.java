@@ -16,6 +16,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.StrictMode;
+import android.os.Vibrator;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -72,6 +73,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
+
+import ir.adad.Adad;
 
 public class MainActivity extends FragmentActivity {
 
@@ -297,6 +300,8 @@ public class MainActivity extends FragmentActivity {
                     } else if (markSeveral) {
                         openOptionsMenu();
                     } else {
+                        Vibrator mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        mVibrator.vibrate(30);
                         markSeveral = true;
                         int currentApi = android.os.Build.VERSION.SDK_INT;
                         if (currentApi >= Build.VERSION_CODES.HONEYCOMB) {
@@ -467,6 +472,30 @@ public class MainActivity extends FragmentActivity {
         tvTotalCount.setText(Integer.toString(arrayItems.size()));
         tvHeader.setText("Add An Item");
 
+        etNewWord = (EditText) dialogAddNew.findViewById(R.id.etWord);
+        etNewMeaning = (EditText) dialogAddNew.findViewById(R.id.etMeaning);
+
+        etNewWord.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE))
+                            .showSoftInput(etNewWord, InputMethodManager.SHOW_FORCED);
+                }else
+                    Toast.makeText(getApplicationContext(), "lost the focus", 2000).show();
+            }
+        });
+
+        etNewMeaning.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE))
+                            .showSoftInput(etNewMeaning, InputMethodManager.SHOW_FORCED);
+                }else
+                    Toast.makeText(getApplicationContext(), "lost the focus", 2000).show();
+            }
+        });
 
         dialogAddNew.setCanceledOnTouchOutside(false);
         Button theButton = dialogAddNew.getButton(DialogInterface.BUTTON_POSITIVE);

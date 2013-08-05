@@ -10,10 +10,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/listView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="55dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="45dp"
             android:drawSelectorOnTop="false"
-            android:choiceMode="multipleChoice"/>
+            android:choiceMode="multipleChoice"
+            android:layout_above="@+id/ad"
+            android:layout_alignParentTop="true"
+            />
 
     <Button
             android:layout_width="wrap_content"
@@ -24,10 +26,9 @@
             android:layout_centerHorizontal="true"
             android:onClick="AddNew"
             android:layout_alignParentRight="false"
-            android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="5dp"/>
+            />
 
     <EditText
             android:layout_width="wrap_content"
@@ -44,8 +45,9 @@
             android:drawableRight="@android:drawable/ic_menu_search"
             android:imeOptions="actionSearch"
             android:layout_marginRight="5dp"
+            android:hint="Search here"
             android:layout_alignBottom="@+id/button"
-            android:hint="Search here"/>
+            android:layout_alignBaseline="@+id/button"/>
 
     <ImageView
             android:layout_width="wrap_content"
@@ -57,5 +59,13 @@
             android:layout_alignParentLeft="true"
             android:layout_margin="65dp"
             android:visibility="gone"/>
+    <ir.adad.AdView
+            android:id="@+id/ad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            token="15a8d1180831404ca54a13c3cff787b2"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible"/>
 
 </RelativeLayout>

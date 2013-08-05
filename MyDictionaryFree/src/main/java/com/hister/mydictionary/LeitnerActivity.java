@@ -6,11 +6,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Parcelable;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -271,8 +273,8 @@ public class LeitnerActivity extends Activity {
 //            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
             TextView tvSummery = (TextView) findViewById(R.id.leitnerSummeryTV);
             if (!itemsToShow.get(0).getName().equals("   Nothing found") && !itemsToShow.get(0).getMeaning().equals("My Dictionary"))
-                tvSummery.setText("'" + Integer.toString(itemsToShow.size()) + "' words left");
-            else tvSummery.setText("'" + Integer.toString(itemsToShow.size()-1) + "' words left");
+                tvSummery.setText("'" + Integer.toString(itemsToShow.size()) + "'");
+            else tvSummery.setText("'" + Integer.toString(itemsToShow.size()-1) + "'");
         }
     }
 
@@ -282,38 +284,91 @@ public class LeitnerActivity extends Activity {
     }
 
     void dialogSummery() {
-        int deck1 = 0;
-        int deck2 = 0;
-        int deck3 = 0;
-        int deck4 = 0;
-        int deck5 = 0;
+        int[] deck = {0, 0, 0, 0, 0};
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View layout = inflater.inflate(R.layout.dialog_summery, null);
+        final AlertDialog.Builder d = new AlertDialog.Builder(this)
+                .setView(layout)
+                .setPositiveButton(R.string.ok, null);
+
+        dialogSummery = d.create();
+        dialogSummery.show();
+
+        TextView[] deckTv = {(TextView) dialogSummery.findViewById(R.id.d1),
+                (TextView) dialogSummery.findViewById(R.id.d2),
+                (TextView) dialogSummery.findViewById(R.id.d3),
+                (TextView) dialogSummery.findViewById(R.id.d4),
+                (TextView) dialogSummery.findViewById(R.id.d5)};
 
         for (ItemShow item : itemsToShow) {
             if (!item.getName().equals("   Nothing found") && !item.getMeaning().equals("My Dictionary")) {
-                if (item.getDeck() == 1) deck1++;
-                else if (item.getDeck() == 2) deck2++;
-                else if (item.getDeck() == 3) deck3++;
-                else if (item.getDeck() == 4) deck4++;
-                else if (item.getDeck() == 5) deck5++;
+                if (item.getDeck() == 1) {
+                    deck[0]++;
+                    deckTv[0].setTextColor(Color.GREEN);
+                } else if (item.getDeck() == 2) {
+                    deck[1]++;
+                    deckTv[1].setTextColor(Color.GREEN);
+                } else if (item.getDeck() == 3) {
+                    deck[2]++;
+                    deckTv[2].setTextColor(Color.GREEN);
+                } else if (item.getDeck() == 4) {
+                    deck[3]++;
+                    deckTv[3].setTextColor(Color.GREEN);
+                } else if (item.getDeck() == 5) {
+                    deck[4]++;
+                    deckTv[4].setTextColor(Color.GREEN);
+                }
             }
         }
 
-        String summery = "";
-        summery += Integer.toString(deck1) + " left in first deck\n";
-        summery += Integer.toString(deck2) + " left in second deck\n";
-        summery += Integer.toString(deck3) + " left in third deck \n";
-        summery += Integer.toString(deck4) + " left in forth deck \n";
-        summery += Integer.toString(deck5) + " left in fifth deck";
+        boolean d1Ready = deck[0] == 0;
+        boolean d2Ready = deck[1] == 0;
+        boolean d3Ready = deck[2] == 0;
+        boolean d4Ready = deck[3] == 0;
+        boolean d5Ready = deck[4] == 0;
 
-        dialogSummery = new AlertDialog.Builder(this)
-                .setMessage(summery)
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                })
-                .create();
-        dialogSummery.show();
+        for (Item item : arrayItems) {
+            if (item.getDeck() == 1 && d1Ready) {
+                deck[0]++;
+                deckTv[0].setTextColor(Color.RED);
+            } else if (item.getDeck() == 2 && d2Ready) {
+                deck[1]++;
+                deckTv[1].setTextColor(Color.RED);
+            } else if (item.getDeck() == 3 && d3Ready) {
+                deck[2]++;
+                deckTv[2].setTextColor(Color.RED);
+            } else if (item.getDeck() == 4 && d4Ready) {
+                deck[3]++;
+                deckTv[3].setTextColor(Color.RED);
+            } else if (item.getDeck() == 5 && d5Ready) {
+                deck[4]++;
+                deckTv[4].setTextColor(Color.RED);
+            }
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            deckTv[i].setText(Integer.toString(deck[i]));
+        }
+
+        TextView tAnswers = (TextView) dialogSummery.findViewById(R.id.tAnswers);
+        TextView tCorrects = (TextView) dialogSummery.findViewById(R.id.tCorrects);
+        TextView tIncorrects = (TextView) dialogSummery.findViewById(R.id.tIncorrects);
+        TextView tCards = (TextView) dialogSummery.findViewById(R.id.tCards);
+        TextView tDays = (TextView) dialogSummery.findViewById(R.id.tDays);
+
+        int totalAnswers = 0, totalCorrects = 0, totalIncorrects = 0, totalCards = arrayItems.size(), totalDays = todayNum;
+        for (Item item: arrayItems) {
+            totalAnswers+= item.getCount();
+            totalCorrects+= item.getCountCorrect();
+            totalIncorrects+= item.getCountInCorrect();
+        }
+
+        tAnswers.setText("Total Answers: "+ totalAnswers);
+        tCorrects.setText("Total Corrects: "+ totalCorrects);
+        tIncorrects.setText("Total Incorrects: "+ totalIncorrects);
+        tCards.setText("Total Cards: "+ totalCards);
+        tDays.setText("Total Days: "+ totalDays);
     }
 
     void refreshShow() {
@@ -753,12 +808,14 @@ public class LeitnerActivity extends Activity {
                     if (markSeveral) {
                         openOptionsMenu();
                     } else {
+                        Vibrator mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        mVibrator.vibrate(30);
                         markSeveral = true;
                         int currentApi = android.os.Build.VERSION.SDK_INT;
                         if (currentApi >= Build.VERSION_CODES.HONEYCOMB) {
                             invalidateOptionsMenu();
                         }
-                        setElementsId();
+//                        setElementsId();
                         listViewPosition = items.onSaveInstanceState();
                         refreshListViewData();
                         if (isFromSearch) {

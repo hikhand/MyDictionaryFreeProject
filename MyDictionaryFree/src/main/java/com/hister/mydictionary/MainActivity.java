@@ -2,31 +2,23 @@ package com.hister.mydictionary;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.app.Activity;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.StrictMode;
 import android.os.Vibrator;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -34,21 +26,16 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.inputmethod.EditorInfo;
@@ -59,28 +46,22 @@ import org.apache.commons.net.ftp.FTPClient;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.nio.channels.FileChannel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
-import java.util.Locale;
-
-import ir.adad.Adad;
 
 public class MainActivity extends FragmentActivity {
 
 
     DatabaseHandler database;
-    DatabaseHandlerLeitner databaseLeitner;
+    DatabaseLeitner databaseLeitner;
     SharedPreferences prefs;
     SharedPreferences mainPrefs;
     SharedPreferences.Editor editorMainPrefs;
@@ -135,6 +116,8 @@ public class MainActivity extends FragmentActivity {
 
     Names V = null;
 
+    String s = File.separator;
+
     @Override
     public boolean onSearchRequested() {
         etSearch.requestFocus();
@@ -188,7 +171,12 @@ public class MainActivity extends FragmentActivity {
             listViewPosition = icicle.getParcelable("listViewPosition");
             searchText = icicle.getString("etSearchText");
         }
-        etSearch.setText(searchText);
+        if (etSearch == null || searchText.equals(null)) {
+            etSearch = (EditText) findViewById(R.id.leitnerSearchET);
+            etSearch.setText("");
+        } else {
+            etSearch.setText(searchText);
+        }
 
         sharedToDatabase();
 
@@ -200,7 +188,11 @@ public class MainActivity extends FragmentActivity {
         listeners();
 
         checkSiteForPosts();
-        checkSiteForVersionChange();
+        try {
+            checkSiteForVersionChange();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         if (!mainPrefs.getBoolean("rated", false)) {
             if (arrayItems.size() < 50 && !mainPrefs.getBoolean("rate20Viewed", false) && arrayItems.size() > 20) {
@@ -226,6 +218,11 @@ public class MainActivity extends FragmentActivity {
                 showDialogRate();
             }
             editorMainPrefs.commit();
+        }
+        MainActivity.this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        if (arrayItems.size() >= 200) {
+            accessDenied();
         }
     }
 
@@ -413,7 +410,7 @@ public class MainActivity extends FragmentActivity {
         V  = new Names();
 
         database = new DatabaseHandler(this);
-        databaseLeitner = new DatabaseHandlerLeitner(this);
+        databaseLeitner = new DatabaseLeitner(this);
         mainPrefs = getSharedPreferences("main", MODE_PRIVATE);
         editorMainPrefs = mainPrefs.edit();
 
@@ -481,8 +478,7 @@ public class MainActivity extends FragmentActivity {
                 if(hasFocus){
                     ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE))
                             .showSoftInput(etNewWord, InputMethodManager.SHOW_FORCED);
-                }else
-                    Toast.makeText(getApplicationContext(), "lost the focus", 2000).show();
+                }
             }
         });
 
@@ -492,10 +488,80 @@ public class MainActivity extends FragmentActivity {
                 if(hasFocus){
                     ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE))
                             .showSoftInput(etNewMeaning, InputMethodManager.SHOW_FORCED);
-                }else
-                    Toast.makeText(getApplicationContext(), "lost the focus", 2000).show();
+                }
             }
         });
+
+        etNewWord.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                etNewWord.getText().toString();
+                String s = etNewWord.getText().toString();
+                int length = s.length();
+                String c = "";
+                if (length > 1) {
+                    c = s.substring(length-1, length);
+                    if (c.equals("@")) {
+                        etNewMeaning.requestFocus();
+                        etNewMeaning.setSelection(etNewMeaning.getText().toString().length());
+                        etNewWord.setText(s.substring(0, length - 1));
+                    }
+                } else if (length == 1){
+                    c = s;
+                    if (c.equals("@")) {
+                        etNewMeaning.requestFocus();
+                        etNewMeaning.setSelection(etNewMeaning.getText().toString().length());
+                        etNewWord.setText("");
+                    }
+                }
+            }
+        });
+
+        etNewMeaning.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                etNewMeaning.getText().toString();
+                String s = etNewMeaning.getText().toString();
+                int length = s.length();
+                String c = "";
+                if (length > 1) {
+                    c = s.substring(length-1, length);
+                    if (c.equals("@")) {
+                        etNewWord.requestFocus();
+                        etNewWord.setSelection(etNewWord.getText().toString().length());
+                        etNewMeaning.setText(s.substring(0, length - 1));
+                    }
+                } else if (length == 1){
+                    c = s;
+                    if (c.equals("@")) {
+                        etNewWord.requestFocus();
+                        etNewWord.setSelection(etNewWord.getText().toString().length());
+                        etNewMeaning.setText("");
+                    }
+                }
+            }
+        });
+
 
         dialogAddNew.setCanceledOnTouchOutside(false);
         Button theButton = dialogAddNew.getButton(DialogInterface.BUTTON_POSITIVE);
@@ -521,22 +587,51 @@ public class MainActivity extends FragmentActivity {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
                 String currentDateAndTime = simpleDateFormat.format(new Date());
 
-                database.addItem(new Custom(newWord, newMeaning, currentDateAndTime, 0));
-
-                if (chDontToLeitner.isChecked()) {
-                    databaseLeitner.addItem(new Item(newWord, newMeaning, currentDateAndTime), V.TABLE_DONT_ADD);
+                if (arrayItems.size() >= 200) {
+                    accessDenied();
                 } else {
-                    databaseLeitner.addItem(new Item(newWord, newMeaning, currentDateAndTime), V.TABLE_LEITNER);
-                    databaseLeitner.addItem(new Item(newWord, newMeaning, currentDateAndTime), V.TABLE_DONT_ADD);
-                }
+                    database.addItem(new Custom(newWord, newMeaning, currentDateAndTime, 0));
 
-                setImgAddVisibility();
-                listViewPosition = items.onSaveInstanceState();
-                refreshListViewData(false);
-                dialog.dismiss();
-                Toast.makeText(MainActivity.this, "Successfully added.", Toast.LENGTH_SHORT).show();
+                    if (chDontToLeitner.isChecked()) {
+                        databaseLeitner.addItem(new Item(newWord, newMeaning, currentDateAndTime), V.TABLE_DONT_ADD);
+                    } else {
+                        databaseLeitner.addItem(new Item(newWord, newMeaning, currentDateAndTime), V.TABLE_LEITNER);
+                        databaseLeitner.addItem(new Item(newWord, newMeaning, currentDateAndTime), V.TABLE_DONT_ADD);
+                    }
+
+                    setImgAddVisibility();
+                    listViewPosition = items.onSaveInstanceState();
+                    refreshListViewData(false);
+                    dialog.dismiss();
+                    Toast.makeText(MainActivity.this, "Successfully added.", Toast.LENGTH_SHORT).show();
+                    dialogAddNew.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+                    MainActivity.this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+                }
             }
         }
+    }
+
+    void accessDenied() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Access Denied");
+        builder.setMessage("You have reached the maximum number of words in the free version, would you like to install THE PRO version now ?");
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Uri uriUrl = Uri.parse("market://details?id=ir.khaled.mydictionary");
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                MainActivity.this.startActivity(launchBrowser);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        AlertDialog dialogGoPro = builder.create();
+        dialogGoPro.show();
+        dialogGoPro.setCanceledOnTouchOutside(false);
     }
 
 
@@ -594,6 +689,7 @@ public class MainActivity extends FragmentActivity {
     Custom convertToCustom(CustomShow j) {
         return new Custom(j.getId(), j.getWord(), j.getMeaning(), j.getDate(), j.getCount());
     }
+
     //Dialog Edit
     //
     //
@@ -636,8 +732,102 @@ public class MainActivity extends FragmentActivity {
         etNewWord = (EditText) dialogEdit.findViewById(R.id.etWord);
         etNewMeaning = (EditText) dialogEdit.findViewById(R.id.etMeaning);
 
-            etNewWord.setText(arrayItems.get(realPosition).getWord());
-            etNewMeaning.setText(arrayItemsToShow.get(fakePosition).getMeaning());
+        etNewWord.setText(arrayItems.get(realPosition).getWord());
+        etNewMeaning.setText(arrayItemsToShow.get(fakePosition).getMeaning());
+
+        etNewWord.setFocusableInTouchMode(true);
+        etNewMeaning.setFocusableInTouchMode(true);
+
+        etNewWord.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
+                            .showSoftInput(etNewWord, InputMethodManager.SHOW_FORCED);
+                }
+            }
+        });
+
+        etNewMeaning.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE))
+                            .showSoftInput(etNewMeaning, InputMethodManager.SHOW_FORCED);
+                }
+            }
+        });
+
+        etNewWord.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                etNewWord.getText().toString();
+                String s = etNewWord.getText().toString();
+                int length = s.length();
+                String c = "";
+                if (length > 1) {
+                    c = s.substring(length-1, length);
+                    if (c.equals("@")) {
+                        etNewMeaning.requestFocus();
+                        etNewMeaning.setSelection(etNewMeaning.getText().toString().length());
+                        etNewWord.setText(s.substring(0, length - 1));
+                    }
+                } else if (length == 1){
+                    c = s;
+                    if (c.equals("@")) {
+                        etNewMeaning.requestFocus();
+                        etNewMeaning.setSelection(etNewMeaning.getText().toString().length());
+                        etNewWord.setText("");
+                    }
+                }
+            }
+        });
+
+        etNewMeaning.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                etNewMeaning.getText().toString();
+                String s = etNewMeaning.getText().toString();
+                int length = s.length();
+                String c = "";
+                if (length > 1) {
+                    c = s.substring(length-1, length);
+                    if (c.equals("@")) {
+                        etNewWord.requestFocus();
+                        etNewWord.setSelection(etNewWord.getText().toString().length());
+                        etNewMeaning.setText(s.substring(0, length - 1));
+                    }
+                } else if (length == 1){
+                    c = s;
+                    if (c.equals("@")) {
+                        etNewWord.requestFocus();
+                        etNewWord.setSelection(etNewWord.getText().toString().length());
+                        etNewMeaning.setText("");
+                    }
+                }
+            }
+        });
+
 
         CheckBox chDontToLeitner = (CheckBox) dialogEdit.findViewById(R.id.chDoOrDoNot);
         chDontToLeitner.setVisibility(View.GONE);
@@ -690,6 +880,8 @@ public class MainActivity extends FragmentActivity {
                 refreshListViewData(false);
                 dialog.dismiss();
                 Toast.makeText(MainActivity.this, "Successfully edited.", Toast.LENGTH_SHORT).show();
+                dialogEdit.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+                MainActivity.this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
             }
         }
     }
@@ -1297,6 +1489,9 @@ public class MainActivity extends FragmentActivity {
                 MainActivity.this.startActivity(new Intent(MainActivity.this, LeitnerActivity.class));
                 return true;
 
+            case R.id.action_package:
+                MainActivity.this.startActivity(new Intent(MainActivity.this, PackageActivity.class));
+                return true;
         }
         return super.onMenuItemSelected(featureId, item);
     }
@@ -1342,6 +1537,28 @@ public class MainActivity extends FragmentActivity {
         } else {
             tvDate.setText(arrayItemsToShow.get(position).getDate());
         }
+
+        tvWord.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Vibrator mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                mVibrator.vibrate(30);
+                Toast.makeText(MainActivity.this, "For pronunciation wou need the pro version.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+        tvMeaning.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Vibrator mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                mVibrator.vibrate(30);
+                Toast.makeText(MainActivity.this, "For pronunciation wou need the pro version.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+
 
         dialogMeaning.setCanceledOnTouchOutside(true);
     }
@@ -1590,58 +1807,6 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
-    public void upload() {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
-        FTPClient con;
-
-        try {
-            File sdCard = Environment.getExternalStorageDirectory();
-            File dir = new File(sdCard.toString());
-
-            con = new FTPClient();
-            con.connect(InetAddress.getByName("ftp.khaled.ir"));
-
-            if (con.login("windowsp", "KHaledBLack73")) {
-//                try {
-//                    File sd = Environment.getExternalStorageDirectory();
-//                    File data = Environment.getDataDirectory();
-//
-//                    if (sd.canWrite()) {
-//                        String currentDBPath = "//data//ir.khaled.mydictionary//shared_prefs//Words.xml";
-//                        String backupDBPath = "{database name}";
-//                        File currentDB = new File(data, currentDBPath);
-//                        File backupDB = new File(sd, backupDBPath);
-//
-//                        if (currentDB.exists()) {
-//                            FileChannel src = new FileInputStream(currentDB).getChannel();
-//                            FileChannel dst = new FileOutputStream(backupDB).getChannel();
-//                            dst.transferFrom(src, 0, src.size());
-//                            src.close();
-//                            dst.close();
-//                        }
-//                    }
-//                } catch (Exception e) {
-//                }
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-//        TelephonyManager tm = (TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
-//        final String DeviceId, SerialNum, androidId;
-//        DeviceId = tm.getDeviceId();
-//        SerialNum = tm.getSimSerialNumber();
-//        androidId = Secure.getString(getContentResolver(),Secure.ANDROID_ID);
-//
-//        UUID deviceUuid = new UUID(androidId.hashCode(), ((long)DeviceId.hashCode() << 32) | SerialNum.hashCode());
-//        String mydeviceId = deviceUuid.toString();
-//        Log.v("My Id", "Android DeviceId is: " +DeviceId);
-//        Log.v("My Id", "Android SerialNum is: " +SerialNum);
-//        Log.v("My Id", "Android androidId is: " +androidId);
-//        Log.v("My Id", "Android androidId is: " +mydeviceId);
-    }
 
 
     void checkSiteForPosts() {
@@ -1652,7 +1817,6 @@ public class MainActivity extends FragmentActivity {
             String error = "";
             String errorS = "";
             private Context context;
-            String s = File.separator;
 
             String lastPostStr = "";
             int lastPostNum = 0;
@@ -1669,13 +1833,13 @@ public class MainActivity extends FragmentActivity {
                     con = new FTPClient();
                     con.connect(InetAddress.getByName("5.9.0.183"));
 
-                    if (con.login("windowsp", "KHaledBLack73")) {
+                    if (con.login("mdftp@khaled.ir", "3k2oy8HRhs")) {
                         con.enterLocalPassiveMode(); // important!
 
                         InputStream inputStream;
                         BufferedReader r;
 
-                        inputStream = con.retrieveFileStream(s + "MyDictionary" + s + "lastpost" + s + "lastpost");
+                        inputStream = con.retrieveFileStream(s + "lastpost" + s + "lastpost");
                         r = new BufferedReader(new InputStreamReader(inputStream));
                         lastPostStr = r.readLine();
                         inputStream.close();
@@ -1737,15 +1901,15 @@ public class MainActivity extends FragmentActivity {
         dialogNewPost.setCanceledOnTouchOutside(false);
     }
 
-    void checkSiteForVersionChange() {
-        final String currentVersion = mainPrefs.getString("currentVersion", "1.3.1");
+    void checkSiteForVersionChange() throws PackageManager.NameNotFoundException {
+        PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        final String currentVersion = pInfo.versionName;
         class FtpTask extends AsyncTask<Void, Integer, Void> {
             FTPClient con;
             boolean succeed = false;
             String error = "";
             String errorS = "";
             private Context context;
-            String s = File.separator;
 
             String newVersion = "";
 
@@ -1761,13 +1925,13 @@ public class MainActivity extends FragmentActivity {
                     con = new FTPClient();
                     con.connect(InetAddress.getByName("5.9.0.183"));
 
-                    if (con.login("windowsp", "KHaledBLack73")) {
+                    if (con.login("mdftp@khaled.ir", "3k2oy8HRhs")) {
                         con.enterLocalPassiveMode(); // important!
 
                         InputStream inputStream;
                         BufferedReader r;
 
-                        inputStream = con.retrieveFileStream(s + "MyDictionary" + s + "versionFree" + s + "lastVersion");
+                        inputStream = con.retrieveFileStream(s + "versionFree" + s + "lastVersion");
                         r = new BufferedReader(new InputStreamReader(inputStream));
                         newVersion = r.readLine();
                         inputStream.close();
@@ -1851,14 +2015,14 @@ public class MainActivity extends FragmentActivity {
     void countMe() {
         class FtpTask extends AsyncTask<Void, Integer, Void> {
             FTPClient con;
-            int rand = 0;
+            double rand = 0;
             private Context context;
 
             public FtpTask(Context context) { this.context = context; }
 
             protected void onPreExecute()
             {
-                rand = (int) (Math.random() * ((999999999) + 1));
+                rand = Math.random() * ((999999999) + 1);
             }
 
             protected Void doInBackground(Void... args) {
@@ -1866,16 +2030,15 @@ public class MainActivity extends FragmentActivity {
                     con = new FTPClient();
                     con.connect(InetAddress.getByName("5.9.0.183"));
 
-                    if (con.login("windowsp", "KHaledBLack73")) {
+                    if (con.login("mdftp@khaled.ir", "3k2oy8HRhs")) {
                         con.enterLocalPassiveMode(); // important!
                         con.setFileType(FTP.BINARY_FILE_TYPE);
 //                        FileInputStream inMain;
-                        String userPath = File.separator + "MyDictionary" + File.separator + "usersFree" + File.separator + Integer.toString(rand);
-
+                        String userPath = s + "usersFree" + s + Double.toString(rand);
 
                         FileOutputStream outputStream;
                         outputStream = openFileOutput("userNumber", Context.MODE_PRIVATE);
-                        outputStream.write(Integer.toString(rand).getBytes());
+                        outputStream.write(Double.toString(rand).getBytes());
                         outputStream.close();
 
                         con.storeFile(userPath, openFileInput("userNumber"));

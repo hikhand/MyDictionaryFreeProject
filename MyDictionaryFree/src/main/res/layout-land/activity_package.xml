@@ -8,59 +8,44 @@
     <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/leitnerListView"
+            android:id="@+id/packageListView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="45dp"
             android:drawSelectorOnTop="false"
-            android:choiceMode="multipleChoice"
-            android:layout_alignParentTop="true"/>
-
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add New"
-            android:id="@+id/leitnerAddNewBtn"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="AddNew"
-            android:layout_alignParentRight="false"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="2dp"/>
+            android:choiceMode="multipleChoice"/>
 
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/leitnerSearchET"
+            android:id="@+id/packageSearchET"
             android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="false"
-            android:layout_marginTop="8dp"
+            android:layout_alignParentLeft="true"
             android:layout_marginLeft="5dp"
             android:singleLine="true"
-            android:layout_toRightOf="@+id/leitnerAddNewBtn"
             android:layout_alignParentRight="false"
             android:inputType="text"
             android:drawableRight="@android:drawable/ic_menu_search"
             android:imeOptions="actionSearch"
             android:layout_marginRight="2dp"
-            android:layout_alignBottom="@+id/leitnerAddNewBtn"
             android:hint="Search here"
-            android:layout_toLeftOf="@+id/leitnerSummeryTV"
-            />
+            android:layout_toLeftOf="@+id/packageSummeryTV"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="100"
-            android:id="@+id/leitnerSummeryTV"
+            android:text="00"
+            android:id="@+id/packageSummeryTV"
             android:layout_centerHorizontal="true"
             android:clickable="true"
             android:onClick="summery_OnClick"
             android:textColor="#3d3a3d"
+            android:layout_alignBaseline="@+id/packageSearchET"
             android:layout_alignParentRight="true"
-            android:layout_alignBaseline="@+id/leitnerSearchET"
             android:layout_marginRight="3dp"/>
+
     <ir.adad.AdView
             android:id="@+id/ad"
             android:layout_width="wrap_content"

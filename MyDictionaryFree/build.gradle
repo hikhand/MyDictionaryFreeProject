@@ -8,10 +8,6 @@ buildscript {
 }
 apply plugin: 'android'
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     compile 'com.android.support:support-v4:13.0.+'
     compile files('libs/commons-net-3.3.jar')

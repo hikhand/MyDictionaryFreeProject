@@ -1,6 +1,8 @@
 package com.hister.mydictionary;
 
 import android.app.Activity;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -15,6 +17,16 @@ public class AboutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
         tvSiteUrl = (TextView) findViewById(R.id.tvSiteUrl);
+
+        TextView tvVersion = (TextView) findViewById(R.id.aboutVersion);
+        try {
+            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            tvVersion.setText("version " + pInfo.versionName + " free");
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void linkToSite(View view) {

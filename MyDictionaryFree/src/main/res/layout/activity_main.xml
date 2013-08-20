@@ -26,9 +26,9 @@
             android:layout_centerHorizontal="true"
             android:onClick="AddNew"
             android:layout_alignParentRight="false"
-            android:layout_marginRight="5dp"
             android:layout_alignParentLeft="true"
-            />
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"/>
 
     <EditText
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_marginRight="5dp"
             android:hint="Search here"
             android:layout_alignBottom="@+id/button"
-            android:layout_alignBaseline="@+id/button"/>
+            />
 
     <ImageView
             android:layout_width="wrap_content"
